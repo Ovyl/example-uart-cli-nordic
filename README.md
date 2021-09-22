@@ -1,0 +1,1 @@
+# example-uart-cli-nordic
