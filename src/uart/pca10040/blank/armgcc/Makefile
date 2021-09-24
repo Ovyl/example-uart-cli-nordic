@@ -2,7 +2,8 @@ PROJECT_NAME     := uart_pca10040
 TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
-SDK_ROOT := ../../../../../..
+SDK_ROOT := ../../../../../vendor/nordic-sdk-17
+CLI_SRC := ../../../../../vendor/embedded-cli/src
 PROJ_DIR := ../../..
 
 $(OUTPUT_DIRECTORY)/nrf52832_xxaa.out: \
@@ -36,9 +37,11 @@ SRC_FILES += \
   $(SDK_ROOT)/modules/nrfx/drivers/src/nrfx_uarte.c \
   $(PROJ_DIR)/main.c \
   $(SDK_ROOT)/modules/nrfx/mdk/system_nrf52.c \
+  $(CLI_SRC)/cli.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \
+  $(CLI_SRC) \
   $(SDK_ROOT)/components \
   $(SDK_ROOT)/modules/nrfx/mdk \
   $(PROJ_DIR) \
