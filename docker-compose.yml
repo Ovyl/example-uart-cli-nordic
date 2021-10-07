@@ -1,8 +1,8 @@
 services:
   fw:
+    image: nicksinas/gnu-gcc-arm-none-eabi
     build: .
     volumes:
       - .:/code
-      - logvolume01:/var/log
 volumes:
-  logvolume01: {}
+  fw:
