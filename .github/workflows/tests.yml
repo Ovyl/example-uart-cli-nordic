@@ -15,21 +15,15 @@ on:
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  run_tests:
+  build_and_test:
     runs-on: ubuntu-latest
     container:
       image: nicksinas/gnu-gcc-arm-none-eabi
     steps:
       - uses: actions/checkout@v2
+      - name: Make PCA10056
+        run: make -C /src/uart/pca10056/blank/armgcc
+      - name: Make PCA10040
+        run: make -C /src/uart/pca10040/blank/armgcc
       - name: Run the unit tests in the container
         run: ceedling
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: nicksinas/gnu-gcc-arm-none-eabi
-    steps:
-      - uses: actions/checkout@v2
-      - name: CD to Makefile
-        run: cd src/uart/pca10056/blank/armgcc
-      - name: Make
-        run: make

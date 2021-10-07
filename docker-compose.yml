@@ -1,8 +1,0 @@
-services:
-  fw:
-    image: nicksinas/gnu-gcc-arm-none-eabi
-    build: .
-    volumes:
-      - .:/code
-volumes:
-  fw:
