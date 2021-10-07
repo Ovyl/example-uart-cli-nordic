@@ -1,0 +1,8 @@
+services:
+  fw:
+    build: .
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+volumes:
+  logvolume01: {}
