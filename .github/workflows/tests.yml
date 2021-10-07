@@ -28,5 +28,4 @@ jobs:
       - name: Run the container
         run: docker run -it gcc-arm
       - name: Run the unit tests in the container
-        run: ls
         run: ceedling
