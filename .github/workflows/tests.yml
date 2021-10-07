@@ -21,8 +21,10 @@ jobs:
       image: nicksinas/gnu-gcc-arm-none-eabi
     steps:
       - uses: actions/checkout@v2
+      - name: Checkout submodules
+        uses: srt32/git-actions@v0.0.3
         with:
-          submodules: recursive
+          args: git submodule update --init --recursive
       - name: Make PCA10056
         run: make -C src/uart/pca10056/blank/armgcc
       - name: Make PCA10040
