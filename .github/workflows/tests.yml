@@ -18,13 +18,8 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     container:
-      runs-on: ubuntu-latest
       image: nicksinas/gnu-gcc-arm-none-eabi
-      steps:
-        - uses: actions/checkout@v2
-        - name: Build the container
-          run: docker build -t gcc-arm .
-        - name: Run the container
-          run: docker run -it gcc-arm
-        - name: Run the unit tests in the container
-          run: ceedling
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run the unit tests in the container
+        run: ceedling
