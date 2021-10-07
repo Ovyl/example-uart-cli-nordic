@@ -1,0 +1,3 @@
+[submodule "vendor/embedded-cli"]
+	path = vendor/embedded-cli
+	url = https://github.com/Ovyl/embedded-cli
