@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: recursive
       - name: Make PCA10056
         run: make -C src/uart/pca10056/blank/armgcc
       - name: Make PCA10040

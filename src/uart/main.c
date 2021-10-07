@@ -51,6 +51,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdarg.h>
 #include "app_uart.h"
 #include "app_error.h"
 #include "nrf_delay.h"
@@ -95,9 +96,12 @@ cmd_t cmd_tbl[4] = {
 cli_t cli;
 cli_status_t rslt = CLI_OK;
 
-void user_uart_println(char *string)
+void user_uart_println(const char *format, ...)
 {
-    printf(string);
+    va_list args;
+    va_start (args, format);
+    vprintf (format, args);
+    va_end (args);
 }
 
 cli_status_t help_func(int argc, char **argv)
