@@ -23,3 +23,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run the unit tests in the container
         run: ceedling
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: nicksinas/gnu-gcc-arm-none-eabi
+    steps:
+      - uses: actions/checkout@v2
+      - name: CD to Makefile
+        run: cd src/uart/pca10056/blank/armgcc
+      - name: Make
+        run: make
