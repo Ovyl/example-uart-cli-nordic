@@ -29,3 +29,8 @@ jobs:
         run: make -C src/uart/pca10040/blank/armgcc
       - name: Run the unit tests in the container
         run: ceedling
+      - name: Archive hex file
+        uses: actions/upload-artifact@v2
+        with:
+          name: bin file
+          path: src/uart/pca10056/blank/armgcc/_build/nrf52840_xxaa.bin
